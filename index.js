@@ -209,6 +209,10 @@ var getProjectName = function () {
         deferred.reject(err);
       }
       var projectName = result.widget.name[0];
+      if (typeof projectName === 'object' && projectName._) {
+        projectName = projectName._;
+      }
+
       deferred.resolve(projectName);
     });
   });
